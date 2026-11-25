@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #FFFFFF;
+  --surface: #F7F7F7;
+  --border: #E5E5E5;
+  --muted: #737373;
+  --ink: #0A0A0A;
+  --nav: rgba(64, 64, 64, 0.85);
+  --on-photo: #FFFFFF;
+}
+
+@layer base {
+  html {
+    font-family: "Century Gothic", "Questrial", "Jost", sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    overflow-x: clip;
+    margin: 0;
+  }
+
+  /* Monochrome custom focus rings, selection, and scrollbars */
+  *:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--ink);
+    color: #FFFFFF;
+  }
+}
+
+/* Custom monochrome scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F7F7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #BDBDBD;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #737373;
+}
+
+@layer components {
+  /* Floating pill navbar glassmorphism (PRD 8.2 & 8.4) */
+  .glass-nav-pill {
+    background: rgba(56, 56, 56, 0.84);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+
+  /* Light monochrome glass surface for subtle modern glassmorphism on white ground */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(10, 10, 10, 0.04);
+  }
+
+  /* Frosted dark glass control over architectural photography */
+  .glass-photo-pill {
+    background: rgba(24, 24, 24, 0.48);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  /* Frosted white glass badge on portfolio cards */
+  .glass-badge-light {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    color: var(--ink);
+  }
+
+  .glass-badge-dark {
+    background: rgba(10, 10, 10, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #FFFFFF;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
